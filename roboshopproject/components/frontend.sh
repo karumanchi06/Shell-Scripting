@@ -52,3 +52,7 @@ cp -r frontend-main/static/* /usr/share/nginx/html/ &>>$Log_file
 echo "copy nginx roboshop config"
 cp frontend-main/localhost.conf /etc/nginz/default.d/roboshop.conf &>>$Log_file
 
+echo"start nginx service"
+systemctl enable nginx &>>$Log_file
+systemctl start nginx &>>$Log_file
+
