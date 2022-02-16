@@ -42,4 +42,13 @@ curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/fron
 echo "clean old content"
 rm -rf /usr/share/nginx/html/* &>>Log_file
 
+echo " extract frontend content"
+cd /tmp
+unzip -o frontend.zip &>>Log_file
+
+echo "copy extracted content to nginx path"
+cp -r frontend-main/static/* /usr/share/nginx/html/ &>>$Log_file
+
+echo "copy nginx roboshop config"
+cp frontend-main/localhost.conf /etc/nginz/default.d/roboshop.conf &>>$Log_file
 
