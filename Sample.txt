@@ -1,2 +1,2 @@
-Hello World
-added one more line
+echo Hello World
+echo added one more line
