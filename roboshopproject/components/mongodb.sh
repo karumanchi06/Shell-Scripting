@@ -52,3 +52,15 @@ yum install mongodb-org &>>$Log_file
 echo "update mongodb config file"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$Log_file
 
+echo"start database"
+systemctl enable mongod &>>$Log_file
+systemctl start mongod &>>$Log_file
+
+echo "download schema"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$Log_file
+
+echo "extract Schema"
+cd /tmp
+unzip -o mongodb.zip &>>$Log_file
+
+
