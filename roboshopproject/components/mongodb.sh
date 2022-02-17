@@ -52,7 +52,7 @@ yum install -y  mongodb-org &>>$Log_file
 echo "update mongodb config file"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$Log_file
 
-echo"start database"
+echo "start database"
 systemctl enable mongod &>>$Log_file
 systemctl start mongod &>>$Log_file
 
