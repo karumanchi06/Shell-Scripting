@@ -47,7 +47,7 @@ echo "Download mongodb repo file"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>$Log_file
 
 echo "install mongodb"
-yum install mongodb-org &>>$Log_file
+yum install -y  mongodb-org &>>$Log_file
 
 echo "update mongodb config file"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$Log_file
