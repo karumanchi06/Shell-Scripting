@@ -40,7 +40,8 @@
 #
 #```
 
-source components/common.sh
+Log_file=/tmp/roboshop.log
+rm -f $Log_file
 
 echo "setup NodeJS Repo"
 #curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
