@@ -43,6 +43,5 @@
 source components/common.sh
 
 echo "setup NodeJS Repo"
+#curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
 
-
-echo "Setup Nodejs repo"
