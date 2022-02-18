@@ -69,7 +69,7 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
   cd /home/roboshop/catalogue &>>$Log_file
   npm install &>>Log_file
 
-  chown roboshp:roboshop /home/roboshop/ -g
+  chown roboshp:roboshop /home/roboshop/ -g &>>$Log_file
 
   echo "update systemD file"
   sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service &>>$Log_file
