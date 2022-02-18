@@ -67,17 +67,18 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 
   echo "install NodeJS dependencies"
   cd /home/roboshop/catalogue &>>$Log_file
-  npm install &>>
+  npm install &>>Log_file
 
   chown roboshp:roboshop /home/roboshop/ -g
 
   echo "update systemD file"
-  sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service
+  sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service &>>$Log_file
 
   echo "setop catalogue systemD File"
   mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$Log_file
 
   echo "Start Service"
+  systemctl daemon-reload catalogue &>>$Log_file
   systemctl enable catalogue &>>$Log_file
   systemctl start catalogue &>>$Log_file
 
