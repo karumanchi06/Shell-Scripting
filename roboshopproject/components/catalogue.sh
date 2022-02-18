@@ -50,13 +50,13 @@ echo "install nodejs"
 yum install nodejs gcc-c++ -y &>>$Log_file
 
 echo "Create app user"
-userad  roboshop &>>$Log_file
+useradd  roboshop &>>$Log_file
 
 echo "Download catalogue code"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$Log_file
 
  echo "extract catalogue code"
-  cd /tmp
+  cd /tmp/
   unzip -o catalogue.zip &>>$Log_file &>>$Log_file
 
   echo "copy catalogue content"
