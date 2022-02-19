@@ -19,7 +19,11 @@ if [ $? -eq 0 ];then
     fi
 
 echo "Create app user"
+id roboshop &>>$Log_file
+if [ $? -ne 0 ]; then
 useradd  roboshop &>>$Log_file
+fi
+
 if [ $? -eq 0 ];then
   echo -e "\e[1;32m SUCCESS\e[0m"
   else
