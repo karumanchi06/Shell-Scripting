@@ -2,7 +2,7 @@
 
 ID=$(id -u)
 if [ $ID -ne 0 ];then
-  echo -e "\e [1;31m you should be root uesr to execute this script....\e[om"
+  echo -e "\e[1;31m you should be root user to execute this script....\e[om"
   exit
   fi
   if  [ -f components/$1.sh ];then
