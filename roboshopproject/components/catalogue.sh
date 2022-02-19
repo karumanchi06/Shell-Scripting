@@ -66,7 +66,7 @@ if [ $? -eq 0 ];then
         exit
         fi
 
-  chown roboshp:roboshop /home/roboshop/ -g &>>$Log_file
+  chown roboshp:roboshop /home/roboshop/ -R &>>$Log_file
   if [ $? -eq 0 ];then
       echo -e "\e[1;32m SUCCESS\e[0m"
       else
