@@ -2,9 +2,21 @@ source components/common.sh
 
 echo "setup NodeJS Repo"
 curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash - &>>$Log_file
+if [ $? -eq 0 ];then
+    echo -e "\e[1;32m SUCCESS\e[0m"
+    else
+      echo -e "\e[1;31m FAILED\e[0m"
+      exit
+      fi
 
 echo "install nodejs"
 yum install nodejs gcc-c++ -y &>>$Log_file
+if [ $? -eq 0 ];then
+    echo -e "\e[1;32m SUCCESS\e[0m"
+    else
+      echo -e "\e[1;31m FAILED\e[0m"
+      exit
+      fi
 
 echo "Create app user"
 id roboshop &>>$Log_file
@@ -15,6 +27,12 @@ fi
 
 echo "Download catalogue code"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$Log_file
+if [ $? -eq 0 ];then
+    echo -e "\e[1;32m SUCCESS\e[0m"
+    else
+      echo -e "\e[1;31m FAILED\e[0m"
+      exit
+      fi
 
  echo "extract catalogue code"
   cd /tmp/
