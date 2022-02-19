@@ -31,24 +31,59 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 
   echo "copy catalogue content"
   cp -r catalogue-main /home/roboshop/catalogue &>>$Log_file
+  if [ $? -eq 0 ];then
+      echo -e "\e[1;32m SUCCESS\e[0m"
+      else
+        echo -e "\e[1;31m FAILED\e[0m"
+        exit
+        fi
 
   echo "install NodeJS dependencies"
   cd /home/roboshop/catalogue &>>$Log_file
   npm install &>>Log_file
+  if [ $? -eq 0 ];then
+      echo -e "\e[1;32m SUCCESS\e[0m"
+      else
+        echo -e "\e[1;31m FAILED\e[0m"
+        exit
+        fi
 
   chown roboshp:roboshop /home/roboshop/ -g &>>$Log_file
+  if [ $? -eq 0 ];then
+      echo -e "\e[1;32m SUCCESS\e[0m"
+      else
+        echo -e "\e[1;31m FAILED\e[0m"
+        exit
+        fi
 
   echo "update systemD file"
   sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service &>>$Log_file
+  if [ $? -eq 0 ];then
+      echo -e "\e[1;32m SUCCESS\e[0m"
+      else
+        echo -e "\e[1;31m FAILED\e[0m"
+        exit
+        fi
 
   echo "setop catalogue systemD File"
   mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$Log_file
+  if [ $? -eq 0 ];then
+      echo -e "\e[1;32m SUCCESS\e[0m"
+      else
+        echo -e "\e[1;31m FAILED\e[0m"
+        exit
+        fi
 
   echo "Start Service"
   systemctl daemon-reload catalogue &>>$Log_file
   systemctl enable catalogue &>>$Log_file
   systemctl start catalogue &>>$Log_file
-
+if [ $? -eq 0 ];then
+    echo -e "\e[1;32m SUCCESS\e[0m"
+    else
+      echo -e "\e[1;31m FAILED\e[0m"
+      exit
+      fi
 
 
 
