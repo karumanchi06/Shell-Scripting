@@ -63,7 +63,7 @@ if [ $? -eq 0 ];then
       fi
 
   echo "install NodeJS dependencies"
-  cd /home/roboshop/user
+  cd /home/roboshop/user &>>$Log_file
   npm install &>>Log_file
   if [ $? -eq 0 ];then
     echo -e "\e[1;32m SUCCESS\e[0m"
