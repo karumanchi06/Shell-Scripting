@@ -59,7 +59,7 @@ if [ $? -eq 0 ];then
     fi
 
 echo "update roboshop config"
-sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/' -e '/user s/localhost/user.roboshop.internal/ '/etc/nginx/default.d/roboshop.conf
+sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/' -e '/user/ s/localhost/user.roboshop.internal/ '/etc/nginx/default.d/roboshop.conf
 if [ $? -eq 0 ];then
   echo -e "\e[1;32m SUCCESS\e[0m"
   else
