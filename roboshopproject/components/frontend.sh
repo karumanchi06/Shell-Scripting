@@ -50,7 +50,16 @@ if [ $? -eq 0 ];then
     fi
 
 echo "copy nginx roboshop config"
-cp frontend-main/localhost.conf /etc/nginz/default.d/roboshop.conf &>>$Log_file
+cp frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf &>>$Log_file
+if [ $? -eq 0 ];then
+  echo -e "\e[1;32m SUCCESS\e[0m"
+  else
+    echo -e "\e[1;31m FAILED\e[0m"
+    exit
+    fi
+
+echo "update roboshop config"
+sed -i -e 's/localhost/catalogue.roboshop.internal/' /etc/nginx/default.d/roboshop.conf
 if [ $? -eq 0 ];then
   echo -e "\e[1;32m SUCCESS\e[0m"
   else
