@@ -67,7 +67,7 @@ if [ $? -eq 0 ];then
     exit
     fi
 
-echo"start nginx service"
+echo "start nginx service"
 systemctl enable nginx &>>$Log_file
 systemctl start nginx &>>$Log_file
 if [ $? -eq 0 ];then
