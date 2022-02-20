@@ -102,7 +102,7 @@ if [ $? -eq 0 ];then
       exit
       fi
 
-  echo "setop cart systemD File"
+  echo "setup cart systemD File"
   mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service &>>$Log_file
   if [ $? -eq 0 ];then
     echo -e "\e[1;32m SUCCESS\e[0m"
