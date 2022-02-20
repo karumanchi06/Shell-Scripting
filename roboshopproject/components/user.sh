@@ -102,7 +102,7 @@ if [ $? -eq 0 ];then
       exit
       fi
 
-  echo "setop user systemD File"
+  echo "setup user systemD File"
   mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service &>>$Log_file
   if [ $? -eq 0 ];then
     echo -e "\e[1;32m SUCCESS\e[0m"
