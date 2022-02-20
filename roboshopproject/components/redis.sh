@@ -34,7 +34,7 @@ if [ $? -eq 0 ];then
             echo "start redis"
 
             systemctl enable redis &>>$Log_file
-            systemctl start redis &>>$Log_file
+            systemctl restart redis &>>$Log_file
 
 
 
