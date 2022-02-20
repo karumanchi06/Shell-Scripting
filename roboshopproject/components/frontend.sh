@@ -69,7 +69,7 @@ if [ $? -eq 0 ];then
 
 echo "start nginx service"
 systemctl enable nginx &>>$Log_file
-systemctl start nginx &>>$Log_file
+systemctl restart nginx &>>$Log_file
 if [ $? -eq 0 ];then
   echo -e "\e[1;32m SUCCESS\e[0m"
   else
