@@ -60,7 +60,7 @@ if [ $? -eq 0 ];then
         fi
 
   echo "copy cart content"
-  cp -r user-main /home/roboshop/cart &>>$Log_file
+  cp -r cart-main /home/roboshop/cart &>>$Log_file
   if [ $? -eq 0 ];then
     echo -e "\e[1;32m SUCCESS\e[0m"
     else
