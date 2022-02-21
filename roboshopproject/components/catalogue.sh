@@ -95,7 +95,7 @@ if [ $? -eq 0 ];then
   echo "Start Service"
   systemctl daemon-reload catalogue &>>$Log_file
   systemctl enable catalogue &>>$Log_file
-  systemctl start catalogue &>>$Log_file
+  systemctl restart catalogue &>>$Log_file
 if [ $? -eq 0 ];then
     echo -e "\e[1;32m SUCCESS\e[0m"
     else
